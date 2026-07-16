@@ -1,0 +1,38 @@
+name: Generate Stories Index
+
+on:
+  push:
+    paths:
+      - 'stories/**'
+      - '.github/scripts/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Make script executable
+        run: chmod +x .github/scripts/generate_index.sh || true
+
+      - name: Generate index.html
+        run: .github/scripts/generate_index.sh index.html
+
+      - name: Commit and push index
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html || true
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: regenerate stories index"
+            git push
+          fi
