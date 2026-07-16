@@ -47,6 +47,9 @@ fi
 
 cat >> "$TMP" <<'HTML_FOOT'
   </ul>
+  <a href="https://github.com/mixed-customer/wait-this-is-ai-slop" target="_blank" rel="noopener noreferrer">
+  View repository: wait-this-is-ai-slop
+</a>
 </body>
 </html>
 HTML_FOOT
