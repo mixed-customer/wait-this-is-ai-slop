@@ -22,7 +22,8 @@ cat > "$TMP" <<'HTML_HEAD'
   </style>
 </head>
 <body>
-  <h1>Stories</h1>
+  <h1>shitposts</h1>
+  <p>sorry not sorry</p>
   <ul>
 HTML_HEAD
 
