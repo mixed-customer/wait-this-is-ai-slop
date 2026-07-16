@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Unlawful Disclosure of the Lawful Disclosure</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Courier+Prime&display=swap');
+        
+        :root {
+            --bg: #f4f1ea;
+            --text: #1a1a1a;
+            --accent: #8b0000;
+            --muted: #666;
+            --border: #c4b9a8;
+            --highlight: #fff8e7;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Crimson Text', Georgia, serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.75;
+            font-size: 18px;
+        }
+        
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 60px 30px;
+        }
+        
+        .title-page {
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 30px;
+            border-bottom: 3px double var(--border);
+            margin-bottom: 80px;
+        }
+        
+        .genre-tag {
+            font-family: 'Courier Prime', monospace;
+            font-size: 12px;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 40px;
+        }
+        
+        .title-page h1 {
+            font-size: 2.8em;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        .subtitle {
+            font-size: 1.1em;
+            color: var(--muted);
+            font-style: italic;
+            margin-bottom: 60px;
+        }
+        
+        .title-divider {
+            width: 60px;
+            height: 2px;
+            background: var(--accent);
+            margin: 0 auto 40px;
+        }
+        
+        .author-note {
+            font-family: 'Courier Prime', monospace;
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 2;
+        }
+        
+        .act {
+            margin-bottom: 80px;
+        }
+        
+        .act-header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 30px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .act-number {
+            font-family: 'Courier Prime', monospace;
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+        
+        .act-title {
+            font-size: 1.8em;
+            font-weight: 700;
+            font-style: italic;
+        }
+        
+        .scene-heading {
+            font-family: 'Courier Prime', monospace;
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin: 50px 0 25px;
+            padding-left: 20px;
+            border-left: 3px solid var(--accent);
+        }
+        
+        .dialogue-block {
+            margin: 30px 0;
+            padding: 0 40px;
+        }
+        
+        .speaker {
+            font-family: 'Courier Prime', monospace;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent);
+            margin-bottom: 5px;
+        }
+        
+        .dialogue {
+            padding-left: 20px;
+            border-left: 1px solid var(--border);
+        }
+        
+        .document {
+            background: var(--highlight);
+            border: 1px solid var(--border);
+            padding: 25px 30px;
+            margin: 30px 0;
+            font-family: 'Courier Prime', monospace;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        
+        .document-header {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--muted);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed var(--border);
+        }
+        
+        .news-excerpt {
+            background: #fff;
+            border: 1px solid var(--border);
+            padding: 25px 30px;
+            margin: 30px 0;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .news-headline {
+            font-family: 'Courier Prime', monospace;
+            font-size: 18px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        
+        .news-meta {
+            font-family: 'Courier Prime', monospace;
+            font-size: 11px;
+            color: var(--muted);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        
+        .news-body {
+            font-size: 15px;
+            line-height: 1.7;
+        }
+        
+        .tweet {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            padding: 20px 25px;
+            margin: 20px 0;
+            max-width: 500px;
+        }
+        
+        .tweet-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .tweet-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Courier Prime', monospace;
+            font-size: 14px;
+            font-weight: 700;
+            margin-right: 12px;
+        }
+        
+        .tweet-name {
+            font-weight: 700;
+            font-size: 15px;
+        }
+        
+        .tweet-handle {
+            font-size: 14px;
+            color: var(--muted);
+        }
+        
+        .tweet-text {
+            font-size: 15px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+        
+        .tweet-verified {
+            color: #1d9bf0;
+            font-size: 14px;
+            margin-left: 4px;
+        }
+        
+        .legal-text {
+            font-family: 'Courier Prime', monospace;
+            font-size: 13px;
+            background: var(--highlight);
+            padding: 20px 25px;
+            margin: 25px 0;
+            border-left: 3px solid var(--accent);
+        }
+        
+        .chalkboard {
+            background: #2a2a2a;
+            color: #f0f0f0;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+            font-family: 'Courier Prime', monospace;
+            font-size: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        p {
+            margin-bottom: 1.2em;
+            text-align: justify;
+        }
+        
+        .epigraph {
+            text-align: center;
+            font-style: italic;
+            color: var(--muted);
+            margin: 40px 60px;
+            font-size: 1.1em;
+        }
+        
+        .stage-dir {
+            font-style: italic;
+            color: var(--muted);
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+        
+        .interlude-header {
+            text-align: center;
+            margin: 60px 0 40px;
+            font-family: 'Courier Prime', monospace;
+            font-size: 12px;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+        
+        .the-end {
+            text-align: center;
+            margin: 80px 0 40px;
+            font-family: 'Courier Prime', monospace;
+            font-size: 14px;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+        
+        .disclaimer {
+            text-align: center;
+            font-style: italic;
+            color: var(--muted);
+            font-size: 14px;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            .title-page h1 {
+                font-size: 2em;
+            }
+            
+            .dialogue-block {
+                padding: 0 15px;
+            }
+            
+            .news-excerpt, .document {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title-page">
+            <div class="genre-tag">A Black Comedy</div>
+            <h1>The Unlawful Disclosure<br>of the Lawful Disclosure</h1>
+            <div class="subtitle">A Story in Three Acts and a Supreme Court Reference</div>
+            <div class="title-divider"></div>
+            <div class="author-note">
+                <em>Being a true and faithful account of Maya Chen,<br>
+                her agency, her judge, her country,<br>
+                and the general collapse of all categories.</em>
+            </div>
+        </div>
+
+        <div class="act">
+            <div class="act-header">
+                <div class="act-number">Act I</div>
+                <div class="act-title">The Outing</div>
+            </div>
+
+            <p>Maya Chen had spent three years building her brand at Elite Intimate Companions, a "modeling agency" operating out of a WeWork in Toronto's financial district. She specialized in corporate events, the kind where Bay Street traders wept about their fathers and asked to be called "worthless little spreadsheet errors." She had a 4.9-star internal rating and a waiting list that stretched to March.</p>
+
+            <p>Then came the email.</p>
+
+            <div class="document">
+                <div class="document-header">From: Elite Intimate Companions &lt;bookings@eic-toronto.ca&gt;<br>To: Valued Clients<br>Subject: Important Service Update</div>
+                Dear Valued Clients,<br><br>
+                We regret to inform you that Maya, previously advertised as "100% natural born woman," is in fact a transgender individual. We have terminated her contract for material misrepresentation. Refunds available upon request.<br><br>
+                Warm regards,<br>
+                The Management
+            </div>
+
+            <p>Maya stared at the screen. They'd outed her. To her entire client list. Using Mailchimp.</p>
+
+            <p>Her phone buzzed. A text from her ex-boyfriend, a tax lawyer: <em>Did you know your agency is cc'ing your entire contact list?</em></p>
+
+            <p>Another buzz. Her mother: <em>The website says you're a man now?</em></p>
+
+            <p>A third. A client: <em>Can I still book? Also, is this why you understood my gender dysphoria about Excel?</em></p>
+
+            <p>She called her union. There was a long pause.</p>
+
+            <div class="dialogue-block">
+                <div class="speaker">Union Operator</div>
+                <div class="dialogue">Which union?</div>
+            </div>
+
+            <div class="dialogue-block">
+                <div class="speaker">Maya</div>
+                <div class="dialogue">Sex Workers United.</div>
+            </div>
+
+            <div class="dialogue-block">
+                <div class="speaker">Union Operator</div>
+                <div class="dialogue">That's a Facebook group, ma'am. Have you tried Employment and Social Development Canada?</div>
+            </div>
+
+            <p>Maya hung up and called a human rights lawyer instead.</p>
+        </div>
+
+        <div class="act">
+            <div class="act-header">
+                <div class="act-number">Act II</div>
+                <div class="act-title">The Discovery</div>
+            </div>
+
+            <p>Terrence Okafor, QC, had built his career on impossible cases. He'd successfully argued that a raccoon living in a Tim Hortons ceiling qualified as a "tenant" under Ontario law. He'd defended a man who claimed his emotional support iguana was ordained by the Church of the Flying Spaghetti Monster. He kept a framed newspaper clipping in his office: <em>Judge Rules That 'Spiritually, We Are All This Goose.'</em></p>
+
+            <p>When Maya sat across from him, he felt the old familiar tingle. Not attraction—he was happily married to a competitive dog groomer—but the tingle of <em>jurisprudential absurdity</em>.</p>
+
+            <div class="dialogue-block">
+                <div class="speaker">Terrence</div>
+                <div class="dialogue">So. You were outed as transgender by your employer, which is an escort agency, which is illegal under Section 286.4 of the Criminal Code, though prostitution itself is legal under <em>Canada v. Bedford</em>, provided it's not communicated in public, which email arguably is, though the Supreme Court left that delightfully vague.</div>
+            </div>
+
+            <div class="dialogue-block">
+                <div class="speaker">Maya</div>
+                <div class="dialogue">Yes.</div>
+            </div>
+
+            <div class="dialogue-block">
+                <div class="speaker">Terrence</div>
+                <div class="dialogue">And you want to sue for discrimination and wrongful dismissal.</div>
+            </div>
+
+            <div class="dialogue-block">
+                <div class="speaker">Maya</div>
+                <div class="dialogue">Yes.</div>
+            </div>
+
+            <div class="dialogue-block">
+                <div class="speaker">Terrence</div>
+                <div class="dialogue">Under the <em>Human Rights Code</em> and common law employment standards.</div>
+            </div>
+
+            <div class="dialogue-block">
+                <div class="speaker">Maya</div>
+                <div class="dialogue">Yes.</div>
+            </div>
+
+            <div class="dialogue-block">
+                <div class="speaker">Terrence</div>
+                <div class="dialogue">Despite the fact that your employment contract—which I found quite moving, by the way, the clause about "emotional labor surcharges" is genuinely innovative—explicitly states that both parties acknowledge this arrangement violates federal criminal law and therefore "exists in a quantum state of employment."</div>
+            </div>
+
+            <p>Maya leaned forward.</p>
+
+            <div class="dialogue-block">
+                <div class="speaker">Maya</div>
+                <div class="dialogue">They outed me. To everyone. They destroyed my life.</div>
+            </div>
+
+            <p>Terrence removed his glasses. Cleaned them. Replaced them.</p>
+
+            <div class="dialogue-block">
+                <div class="speaker">Terrence</div>
+                <div class="dialogue">Maya, I'm going to take your case. But I need you to understand something.</div>
+            </div>
+
+            <p>He pulled down a chalkboard—he was old-fashioned—and wrote in large letters:</p>
+
+            <div class="chalkboard">EVERYONE IS GOING TO LOSE THEIR MINDS</div>
+
+            <p>"First," he said, ticking fingers, "the Human Rights Tribunal will have to acknowledge your employment relationship to hear the discrimination claim. But acknowledging it potentially makes them complicit in recognizing an illegal enterprise. They'll have to thread a needle so fine it could perform microsurgery."</p>
+
+            <p>"Second," another finger, "your wrongful dismissal claim requires a valid employment contract, which you've both signed in admitted violation of federal law. The doctrine of <em>ex turpi causa</em>—from a dishonorable cause an action does not arise—should bar your claim. Except the Supreme Court in <em>Bedford</em> basically said the criminalization of prostitution creates unconstitutional harms, so the law itself is dishonorable, which means <em>turpi</em> is in the eye of the beholder, and suddenly we're doing moral philosophy in chambers."</p>
+
+            <p>"Third," he said, now using his other hand, "the media will eat this alive because it touches every culture war button simultaneously, and nobody will know which side they're supposed to be on."</p>
+
+            <p>"And fourth," he smiled, genuinely delighted, "the politicians. Oh, Maya. The politicians."</p>
+        </div>
+
+        <div class="act">
+            <div class="act-header">
+                <div class="act-number">Act III</div>
+                <div class="act-title">The Trial</div>
+            </div>
+
+            <p>Justice Patricia Hwang had seen things. She'd presided over a case where a man sued his spiritual healer for malpractice after a crystal healing gave him a rash. She'd mediated a dispute between rival falafel carts that devolved into a debate about Lebanese versus Syrian spice traditions that lasted six days. She'd once had a sovereign citizen try to arrest her bench.</p>
+
+            <p>She was not prepared for <em>Chen v. Elite Intimate Companions Ltd.</em></p>
+
+            <div class="scene-heading">Courtroom 4B, Toronto Superior Court of Justice</div>
+
+            <div class="dialogue-block">
+                <div class="speaker">Justice Hwang</div>
+                <div class="dialogue">Let me understand. Ms. Chen, you are suing your former agency for discrimination on the basis of gender identity, under the Ontario <em>Human Rights Code</em>?</div>
+            </div>
+
+            <div class="dialogue-block">
+                <div class="speaker">Maya</div>
+                <div class="dialogue">Yes, Your Honor.</div>
+            </div>
+
+            <div class="dialogue-block">
+                <div class="speaker">Justice Hwang</div>
+                <div class="dialogue">And for wrongful dismissal under common law?</div>
+            </div>
+
+            <div class="dialogue-block">
+                <div class="speaker">Maya</div>
+                <div class="dialogue">Yes, Your Honor.</div>
+            </div>
+
+            <div class="dialogue-block">
+                <div class="speaker">Justice Hwang</div>
+                <div class="dialogue">And Mr. Okafor, you are arguing that despite the employment being criminalized under federal law, the <em>Human Rights Code</em> applies because—</div>
+            </div>
+
+            <p class="stage-dir">She checks her notes.</p>
+
+            <div class="dialogue-block">
+                <div class="speaker">Justice Hwang</div>
+                <div class="dialogue">—"human dignity does not evaporate upon contact with statutory illegality"?</div>
+            </div>
+
+            <div class="dialogue-block">
+                <div class="speaker">Terrence</div>
+                <div class="dialogue">Precisely, Your Honor. We're invoking what I call the "Dignity Exception to the Shame Spiral."</div>
+            </div>
+
+            <div class="dialogue-block">
+                <div class="speaker">Justice Hwang</div>
+                <div class="dialogue">And Ms. Chen, you are <em>not</em> challenging the constitutionality of the criminalization itself?</div>
+            </div>
+
+            <div class="dialogue-block">
+                <div class="speaker">Maya</div>
+                <div class="dialogue">No, Your Honor. I just want my job back. Or damages. Preferably both.</div>
+            </div>
+
+            <p>Justice Hwang turned to the defense counsel, a sharp woman named Deborah Klein who had the exhausted eyes of someone who'd already called her malpractice insurer three times that morning.</p>
+
+            <div class="dialogue-block">
+                <div class="speaker">Justice Hwang</div>
+                <div class="dialogue">Ms. Klein, your defense is that Ms. Chen cannot sue for wrongful dismissal because the employment contract is void <em>ab initio</em> due to illegality, and furthermore, that outing her was actually a <em>legal requirement</em> under truth-in-advertising principles?</div>
+            </div>
+
+            <div class="dialogue-block">
+                <div class="speaker">Klein</div>
+                <div class="dialogue">Yes, Your Honor. The agency had a fiduciary duty to clients to disclose material facts about service providers. Ms. Chen's gender history was material to client preferences. Therefore, the disclosure was not discriminatory but rather a compliance measure.</div>
+            </div>
+
+            <div class="dialogue-block">
+                <div class="speaker">Justice Hwang</div>
+                <div class="dialogue">Your client operates an illegal business.</div>
+            </div>
+
+            <div class="dialogue-block">
+                <div class="speaker">Klein</div>
+                <div class="dialogue">Allegedly, Your Honor.</div>
+            </div>
+
+            <div class="dialogue-block">
+                <div class="speaker">Justice Hwang</div>
+                <div class="dialogue">The Crown has submitted wire transfers, client lists, and a Yelp review.</div>
+            </div>
+
+            <div class="dialogue-block">
+                <div class="speaker">Klein</div>
+                <div class="dialogue">We dispute the admissibility of the Yelp review. The reviewer only gave four stars.</div>
+            </div>
+
+            <p>Justice Hwang felt a headache blooming behind her left eye, the special one reserved for constitutional crises.</p>
+
+            <div class="dialogue-block">
+                <div class="speaker">Justice Hwang</div>
+                <div class="dialogue">Let me be direct. Ms. Chen, if I rule in your favor on the discrimination claim, I am implicitly validating an employment relationship that Parliament has criminalized. If I rule against you, I am suggesting that sex workers—who Parliament explicitly chose <em>not</em> to criminalize—have no human rights protections in their workplaces, which Parliament also chose not to legalize but to leave in this... this <em>Schrodinger's employment</em> state.</div>
+            </div>
+
+            <div class="dialogue-block">
+                <div class="speaker">Maya</div>
+                <div class="dialogue">Yes, Your Honor.</div>
+            </div>
+
+            <div class="dialogue-block">
+                <div class="speaker">Justice Hwang</div>
+                <div class="dialogue">And Ms. Klein, if I accept your defense, I am endorsing the outing of transgender individuals as a consumer protection measure, which would have implications far beyond this industry.</div>
+            </div>
+
+            <div class="dialogue-block">
+                <div class="speaker">Klein</div>
+                <div class="dialogue">That's a policy question, Your Honor. Not a legal one.</div>
+            </div>
+
+            <p><strong>"IT'S ALL POLICY QUESTIONS,"</strong> Justice Hwang said, louder than she intended. She took a breath.</p>
+
+            <div class="dialogue-block">
+                <div class="speaker">Justice Hwang</div>
+                <div class="dialogue">We will adjourn for lunch. I need to... I need to walk near some trees.</div>
+            </div>
+        </div>
+
+        <div class="interlude-header">Interlude: The Media</div>
+
+        <div class="news-excerpt">
+            <div class="news-headline">CBC's The National</div>
+            <div class="news-meta">November 14, 2026 — Evening Broadcast</div>
+            <div class="news-body">
+                <p>"Tonight," Adrienne Arsenault said, looking into the camera with the particular expression of a journalist who'd read the brief three times and still wasn't sure it wasn't a prank, "a human rights case that touches on sex work, transgender rights, criminal law, and employment standards. We have three experts, and we anticipate they will disagree about what we're even disagreeing about."</p>
+            </div>
+        </div>
+
+        <div class="news-excerpt">
+            <div class="news-headline">Expert 1 — McGill Law Professor</div>
+            <div class="news-meta">Live via Satellite</div>
+            <div class="news-body">
+                <p>"This case exposes the fundamental incoherence of <em>Bedford</em>-era prostitution law. Parliament decriminalized selling sex but criminalized buying it, and criminalized third parties entirely. It's like legalizing pizza but criminalizing ovens, delivery drivers, and cheese awareness."</p>
+            </div>
+        </div>
+
+        <div class="news-excerpt">
+            <div class="news-headline">Expert 2 — Christian Legal Institute</div>
+            <div class="news-meta">Via Telephone</div>
+            <div class="news-body">
+                <p>"This case proves the need to recriminalize prostitution entirely. If we just made selling sex illegal again, none of this would be confusing."</p>
+                <p><em>Host: "Wouldn't that just make Ms. Chen a criminal and unemployed?"</em></p>
+                <p>"Sometimes clarity requires sacrifice."</p>
+            </div>
+        </div>
+
+        <div class="news-excerpt">
+            <div class="news-headline">Expert 3 — Sex Worker Advocate</div>
+            <div class="news-meta">In Studio</div>
+            <div class="news-body">
+                <p>"If sex work were treated like any other job, Maya could sue her bastard boss like any other worker, and we wouldn't need to have this metaphysical debate about whether her dignity is statutory or common law or what have you."</p>
+                <p><em>Host: "Wouldn't full decriminalization allow the agency to continue operating?"</em></p>
+                <p>"Yes, but ethically. With labor standards. And no outing."</p>
+                <p><em>Host: "So your position is that the problem isn't the illegality, but the lack of labor protections within the illegality?"</em></p>
+                <p>"Yes."</p>
+                <p><em>Host: "And if the agency were legal, it could out her?"</em></p>
+                <p>"No, that would still be discrimination."</p>
+                <p><em>Host: "So the illegality is irrelevant to the discrimination claim?"</em></p>
+                <p>The advocate paused. "I need a drink that isn't available in this studio."</p>
+            </div>
+        </div>
+
+        <div class="news-excerpt">
+            <div class="news-headline" style="color: var(--accent);">Toronto Sun</div>
+            <div class="news-meta">Front Page — November 15, 2026</div>
+            <div class="news-body">
+                <p style="font-size: 22px; font-weight: 700; color: var(--accent); line-height: 1.2;">TRANS HOOKER SUES PIMP: ONLY IN CANADA, EH?</p>
+                <p style="margin-top: 15px; font-size: 13px; color: var(--muted);"><em>Correction issued: The term "pimp" was inaccurate and potentially defamatory. The editorial staff has been scheduled for sensitivity training. Date TBD.</em></p>
+            </div>
+        </div>
+
+        <div class="news-excerpt">
+            <div class="news-headline" style="font-size: 14px; letter-spacing: 1px;">The Globe and Mail</div>
+            <div class="news-meta">Opinion — 4,200 Words</div>
+            <div class="news-body">
+                <p>A lengthy essay connecting the case to the housing crisis, the opioid epidemic, and the decline of the Laurentian consensus. Nobody read past paragraph three.</p>
+            </div>
+        </div>
+
+        <div class="tweet">
+            <div class="tweet-header">
+                <div class="tweet-avatar">C</div>
+                <div>
+                    <div class="tweet-name">Conservative MP <span class="tweet-verified">&#10003;</span></div>
+                    <div class="tweet-handle">@CommonSenseMP</div>
+                </div>
+            </div>
+            <div class="tweet-text">The Liberal legal framework has created a world where criminals are suing criminals and judges don't know what day it is. Time for common sense on crime!</div>
+            <div style="font-size: 13px; color: var(--muted); margin-top: 8px;"><em>[Deleted. Account claimed to be hacked by "woke algorithms."]</em></div>
+        </div>
+
+        <div class="tweet">
+            <div class="tweet-header">
+                <div class="tweet-avatar" style="background: #d73a49;">L</div>
+                <div>
+                    <div class="tweet-name">Liberal MP <span class="tweet-verified">&#10003;</span></div>
+                    <div class="tweet-handle">@ProgressiveVoice</div>
+                </div>
+            </div>
+            <div class="tweet-text">We stand with Maya Chen and all sex workers seeking dignity and justice under the law.</div>
+            <div style="font-size: 13px; color: var(--muted); margin-top: 8px;"><em>[Clarified: "In a general, non-litigation-specific sense."]</em></div>
+        </div>
+
+        <div class="tweet">
+            <div class="tweet-header">
+                <div class="tweet-avatar" style="background: #f9a825;">N</div>
+                <div>
+                    <div class="tweet-name">NDP</div>
+                    <div class="tweet-handle">@TheNDP</div>
+                </div>
+            </div>
+            <div class="tweet-text">12-Point Plan for Sex Worker Justice:<br>1. Decriminalization<br>2. Labor protections<br>3. Unionization<br>4. Healthcare access<br>5. Housing support<br>6. [Thread continues...]</div>
+            <div style="font-size: 13px; color: var(--muted); margin-top: 8px;"><em>[Everyone agreed it was very detailed.]</em></div>
+        </div>
+
+        <div class="tweet">
+            <div class="tweet-header">
+                <div class="tweet-avatar" style="background: #1565c0;">B</div>
+                <div>
+                    <div class="tweet-name">Bloc Québécois</div>
+                    <div class="tweet-handle">@BlocQuebecois</div>
+                </div>
+            </div>
+            <div class="tweet-text">This case proves that federal criminal law is an intrusion on Quebec's distinct civil law tradition.</div>
+            <div style="font-size: 13px; color: var(--muted); margin-top: 8px;"><em>[When asked how Quebec's civil law would handle it differently: "That is a question for Quebecers to decide, preferably in a referendum."]</em></div>
+        </div>
+
+        <div class="tweet">
+            <div class="tweet-header">
+                <div class="tweet-avatar" style="background: #2e7d32;">G</div>
+                <div>
+                    <div class="tweet-name">Green Party</div>
+                    <div class="tweet-handle">@CanadianGreens</div>
+                </div>
+            </div>
+            <div class="tweet-text">Statement on the environmental impact of sex work and the carbon footprint of the commercial intimacy sector.</div>
+            <div style="font-size: 13px; color: var(--muted); margin-top: 8px;"><em>[Not asked for. Not read.]</em></div>
+        </div>
+
+        <div class="act">
+            <div class="act-header">
+                <div class="act-number">Act IV</div>
+                <div class="act-title">The Ruling</div>
+            </div>
+
+            <p>Justice Hwang delivered her decision on a Tuesday in November, after six months of deliberation, three requests for additional factums, and one incident where she'd been spotted in a bar near Osgoode Hall muttering "the living tree, the living tree" to her gin and tonic.</p>
+
+            <p>She began with a warning:</p>
+
+            <div class="legal-text">
+                "This decision will satisfy nobody. That is not its purpose. Its purpose is to apply the law as it exists, not as it ought to exist, not as it logically should exist, but as it <em>is</em>, in all its majestic, incoherent glory."
+            </div>
+
+            <p><strong>On the discrimination claim:</strong></p>
+
+            <div class="legal-text">
+                "The Ontario <em>Human Rights Code</em> protects against discrimination in employment. The definition of 'employment' in the Code is broad and purposive. It does not require a valid contract. It does not require legality. It requires only that the relationship be one of economic dependency and control. Ms. Chen was economically dependent on Elite Intimate Companions. They controlled her bookings, her rates, her client interactions, and—evidently—her private medical history. The discrimination claim succeeds. Damages are set at $45,000 for injury to dignity, feelings, and self-respect."
+            </div>
+
+            <p>Maya exhaled. Terrence squeezed her hand.</p>
+
+            <p><strong>However,</strong> Justice Hwang continued, and the room tensed:</p>
+
+            <div class="legal-text">
+                "This finding does not validate the underlying business. It simply acknowledges that human rights protections apply to all persons in all economic relationships of dependency, including those that exist in the shadow of criminal law. Parliament may criminalize the business. It may not, through that criminalization, strip its workers of their human rights. To do so would be to punish the vulnerable for the vulnerability."
+            </div>
+
+            <p><strong>On the wrongful dismissal claim:</strong></p>
+
+            <div class="legal-text">
+                "This claim fails. Not because Ms. Chen was not dismissed. Not because the dismissal was justified. It fails because the common law of wrongful dismissal requires a lawful employment contract, and no such contract exists here. I am bound by <em>ex turpi causa</em>. I note, with whatever the judicial equivalent of exasperation is, that this leaves Ms. Chen with human rights remedies but no common law employment remedies, for a job that exists but does not exist, in an industry that is permitted but prohibited. This is not justice. This is legislation. I urge Parliament to look at this."
+            </div>
+
+            <p><strong>On the outing itself:</strong></p>
+
+            <div class="legal-text">
+                "The disclosure of Ms. Chen's transgender status to her client list was a gross violation of her privacy and dignity. That it was done under the guise of 'consumer protection' by a business that cannot legally exist is an irony so dense it could bend light. The agency is ordered to pay $20,000 in damages for this disclosure, separate from the discrimination award."
+            </div>
+
+            <p>She paused. Looked up. For a moment, she seemed to be addressing someone beyond the courtroom.</p>
+
+            <div class="legal-text">
+                "I have been a judge for twenty-two years. I have applied laws I agreed with and laws I found foolish. But never have I seen a statutory scheme so determined to have every cake and eat none of them. Parliament wanted to reduce the harms of prostitution without legitimizing it. They created a world where the worker is legal, the work is legal, but the workplace is criminal. Where dignity is protected but contracts are void. Where you can be discriminated against in a job that officially does not exist."
+            </div>
+
+            <div class="legal-text">
+                "I do not envy the politicians who must fix this. I suspect they will not. I suspect they will hope the next case is less complicated, less public, less <em>human</em>. But Maya Chen is human. Her rights are human. Even in the shadows, especially in the shadows, the law must see her."
+            </div>
+
+            <p>She put down her papers.</p>
+
+            <div class="dialogue-block">
+                <div class="speaker">Justice Hwang</div>
+                <div class="dialogue">Judgment for the plaintiff. In part. We're adjourned.</div>
+            </div>
+        </div>
+
+        <div class="interlude-header">Epilogue: The Aftermath</div>
+
+        <p>Maya used her damages to start a cooperative. No agency. No boss. Just sex workers owning their labor, setting their rates, protecting each other. It was probably illegal under the third-party provisions, but they consulted with Terrence, who advised them to "exist in the quantum state with maximal dignity."</p>
+
+        <p>The Human Rights Tribunal decision was appealed to the Divisional Court, which upheld it but added a concurrence that was just the word "Sigh" repeated for seventeen pages.</p>
+
+        <p>The Supreme Court declined to hear the agency's appeal, with a brief note from the Chief Justice: "We did this in <em>Bedford</em>. We're not doing it again. Parliament, your move."</p>
+
+        <p>Parliament, in the middle of an election, made no move.</p>
+
+        <p>Maya was interviewed by the CBC. The host asked if she felt vindicated.</p>
+
+        <div class="dialogue-block">
+            <div class="speaker">Maya</div>
+            <div class="dialogue">I feel expensive. My rates went up. Turns out being a civil rights icon is good for business.</div>
+            </div>
+
+        <div class="dialogue-block">
+            <div class="speaker">Host</div>
+            <div class="dialogue">Isn't that... mercenary?</div>
+        </div>
+
+        <div class="dialogue-block">
+            <div class="speaker">Maya</div>
+            <div class="dialogue">Sweetheart, everything about my job is mercenary. That's the point. That's why they had to see me. Even when they didn't want to.</div>
+        </div>
+
+        <p>She was, by all accounts, excellent at her job. The kind of excellent that makes systems uncomfortable. The kind that forces recognition. The kind that, in the end, is the only thing that changes anything.</p>
+
+        <p>Terrence framed the decision and hung it next to his raccoon tenant ruling. His wife said it didn't match the decor. He said justice rarely does.</p>
+
+        <p>Justice Hwang retired early. She gardens now. She has a dog, a rescue with three legs and one eye, who is unconcerned with statutory interpretation. She finds this restful.</p>
+
+        <p>And somewhere in Toronto, in a WeWork that has since been converted to a cryptocurrency incubator, a new "modeling agency" sends out an email to its client list. It is very careful. It says nothing about anyone's medical history. It says nothing about anything, really.</p>
+
+        <p>It just lists names, rates, and a note at the bottom: <em>All companions are independent contractors. The agency assumes no liability. Please direct human rights complaints to the appropriate tribunal.</em></p>
+
+        <p>Progress, of a sort.</p>
+
+        <div class="the-end">The End</div>
+
+        <div class="disclaimer">
+            <em>No agencies were validated in the making of this story,<br>though several were gently mocked.</em>
+        </div>
+    </div>
+</body>
+</html>
