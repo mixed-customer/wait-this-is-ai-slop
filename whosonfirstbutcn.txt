@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>《户籍风云：氏家奇遇记》</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap');
+  :root {
+    --bg: #fdfbf7;
+    --text: #2c2c2c;
+    --accent: #8b4513;
+    --muted: #6b6b6b;
+    --line: #d4c5b0;
+    --highlight: #fff8e1;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Noto Serif SC', 'Noto Serif', Georgia, serif;
+    line-height: 1.8;
+    padding-bottom: 4rem;
+  }
+  header {
+    text-align: center;
+    padding: 3rem 1rem 2rem;
+    border-bottom: 3px double var(--line);
+    background: linear-gradient(to bottom, #fff, var(--bg));
+  }
+  header h1 {
+    font-size: 2.4rem;
+    margin: 0 0 0.5rem;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+  }
+  header .subtitle {
+    font-size: 1rem;
+    color: var(--muted);
+    font-style: italic;
+    font-family: 'Noto Serif', Georgia, serif;
+  }
+  .scene {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+  }
+  .scene-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin: 2rem 0 1rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .scene-title span.en {
+    font-size: 0.95rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--muted);
+    font-family: 'Noto Serif', Georgia, serif;
+  }
+  .line-block {
+    margin: 0.8rem 0;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    transition: background 0.2s;
+  }
+  .line-block:hover {
+    background: var(--highlight);
+  }
+  .speaker {
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 0.95rem;
+    margin-bottom: 0.2rem;
+  }
+  .chinese {
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+  }
+  .english {
+    font-size: 0.95rem;
+    color: var(--muted);
+    font-style: italic;
+    font-family: 'Noto Serif', Georgia, serif;
+    padding-left: 1rem;
+    border-left: 2px solid var(--line);
+  }
+  .stage {
+    color: var(--muted);
+    font-style: italic;
+    font-size: 0.9rem;
+  }
+  footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 2rem;
+    color: var(--muted);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--line);
+  }
+  @media print {
+    body { background: white; }
+    .line-block { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>户籍风云：氏家奇遇记</h1>
+  <div class="subtitle">A Comedy in One Act — The Household Register Ordeal</div>
+</header>
+<div class="scene">
+<div class="scene-title">第一幕：户主与妻子 <span class="en">Act 1: The Patriarch and His Wife</span></div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">您好，我是来更新户籍的。请问您是这家的户主吗？</div>
+<div class="english">Hello, I'm here to update the household register. Are you the head of this household?</div>
+</div>
+<div class="line-block">
+<div class="speaker">本人</div>
+<div class="chinese">是的，本人就是本人。</div>
+<div class="english">Yes, Benren is Benren.</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">……您是在说'本人'这个词，还是您的名字就叫'本人'？</div>
+<div class="english">...Are you saying the word 'benren', or is your name actually 'Benren'?</div>
+</div>
+<div class="line-block">
+<div class="speaker">本人</div>
+<div class="chinese">本人叫本人。</div>
+<div class="english">Benren's name is Benren.</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">（记录）户主：本人……这表格填得我自己都不信了。</div>
+<div class="english">(Writing) Head of household: Benren... I don't even believe this form anymore.</div>
+</div>
+<div class="line-block">
+<div class="speaker">本姐姐</div>
+<div class="chinese">警官您好，我是他妻子，本姐姐。</div>
+<div class="english">Hello officer, I'm his wife, Ben Jiejie.</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">本……姐姐？您是在自我介绍，还是在让我叫您姐姐？</div>
+<div class="english">Ben... Jiejie? Are you introducing yourself, or are you asking me to call you 'older sister'?</div>
+</div>
+<div class="line-block">
+<div class="speaker">本姐姐</div>
+<div class="chinese">我的名字就是本姐姐。</div>
+<div class="english">My name is Ben Jiejie.</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">（小声）这家人的名字怎么都像对话里的代词……</div>
+<div class="english">(Whispering) How do this family's names all sound like pronouns in a conversation...</div>
+</div>
+</div>
+<div class="scene">
+<div class="scene-title">第二幕：女儿与女婿 <span class="en">Act 2: The Daughter and Son-in-Law</span></div>
+<div class="line-block">
+<div class="speaker">本宮</div>
+<div class="chinese">爸爸，我回来了！——咦，有客人？</div>
+<div class="english">Dad, I'm back! — Huh, we have a guest?</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">这位是？</div>
+<div class="english">And this is?</div>
+</div>
+<div class="line-block">
+<div class="speaker">本宮</div>
+<div class="chinese">我是本宮。</div>
+<div class="english">I'm Ben Gong.</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">本……宮？您是在说'本宫'，就像古代皇后自称的那种？</div>
+<div class="english">Ben... Gong? Are you saying 'ben gong', like how ancient empresses referred to themselves?</div>
+</div>
+<div class="line-block">
+<div class="speaker">本宮</div>
+<div class="chinese">对，本宮就是本宮。</div>
+<div class="english">Yes, Ben Gong is Ben Gong.</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">（擦汗）那您丈夫是……</div>
+<div class="english">(Wiping sweat) Then your husband is...</div>
+</div>
+<div class="line-block">
+<div class="speaker">张三</div>
+<div class="chinese">我是张三，本宮的丈夫。</div>
+<div class="english">I'm Zhang San, Ben Gong's husband.</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">张三……总算是个正常的名字了。</div>
+<div class="english">Zhang San... finally a normal name.</div>
+</div>
+<div class="line-block">
+<div class="speaker">本宮</div>
+<div class="chinese">对了警官，别忘了登记我的猫，它叫本狗。</div>
+<div class="english">Oh right officer, don't forget to register my cat, it's called Ben Gou.</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">……您女儿叫本宮，她的猫叫本狗？</div>
+<div class="english">...Your daughter is called Ben Gong, and her cat is called Ben Gou?</div>
+</div>
+<div class="line-block">
+<div class="speaker">本人</div>
+<div class="chinese">正是。</div>
+<div class="english">Precisely.</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">（自言自语）我开始怀疑这是不是某种行为艺术……</div>
+<div class="english">(To himself) I'm starting to wonder if this is some kind of performance art...</div>
+</div>
+</div>
+<div class="scene">
+<div class="scene-title">第三幕：两个儿子 <span class="en">Act 3: The Two Sons</span></div>
+<div class="line-block">
+<div class="speaker">我</div>
+<div class="chinese">爸，我回来了。</div>
+<div class="english">Dad, I'm back.</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">这位是……？</div>
+<div class="english">And this is...?</div>
+</div>
+<div class="line-block">
+<div class="speaker">我</div>
+<div class="chinese">我。</div>
+<div class="english">Wo.</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">我知道是'你'，我在问你的名字。</div>
+<div class="english">I know it's 'you', I'm asking for your name.</div>
+</div>
+<div class="line-block">
+<div class="speaker">我</div>
+<div class="chinese">我的名字就是我。</div>
+<div class="english">My name is Wo.</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">……您是在说中文代词'我'？</div>
+<div class="english">...Are you saying the Chinese pronoun 'wo'?</div>
+</div>
+<div class="line-block">
+<div class="speaker">我</div>
+<div class="chinese">对，我就是我。</div>
+<div class="english">Yes, Wo is Wo.</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">（深呼吸）那您弟弟呢？</div>
+<div class="english">(Deep breath) And your younger brother?</div>
+</div>
+<div class="line-block">
+<div class="speaker">朕</div>
+<div class="chinese">朕在此。</div>
+<div class="english">Zhen is here.</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">……'朕'？皇帝自称的那个'朕'？</div>
+<div class="english">...'Zhen'? The 'zhen' that emperors called themselves?</div>
+</div>
+<div class="line-block">
+<div class="speaker">朕</div>
+<div class="chinese">正是朕。</div>
+<div class="english">It is indeed Zhen.</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">（对本人）您家到底有几种皇室称谓？</div>
+<div class="english">(To Benren) How many imperial titles does your family have?</div>
+</div>
+<div class="line-block">
+<div class="speaker">本人</div>
+<div class="chinese">也就本宮和朕两个。</div>
+<div class="english">Just Ben Gong and Zhen, two of them.</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">'也就'两个？！</div>
+<div class="english">'Just' two?!</div>
+</div>
+</div>
+<div class="scene">
+<div class="scene-title">第四幕：养子养女 <span class="en">Act 4: The Adopted Children</span></div>
+<div class="line-block">
+<div class="speaker">谁</div>
+<div class="chinese">警官好，我是家里的养子，谁。</div>
+<div class="english">Hello officer, I'm the family's adopted son, Shei.</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">……您是说'谁'？</div>
+<div class="english">...You mean 'shei'?</div>
+</div>
+<div class="line-block">
+<div class="speaker">谁</div>
+<div class="chinese">对，谁就是我。</div>
+<div class="english">Yes, Shei is me.</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">那请问您叫什么名字？</div>
+<div class="english">Then may I ask what your name is?</div>
+</div>
+<div class="line-block">
+<div class="speaker">谁</div>
+<div class="chinese">谁。</div>
+<div class="english">Shei.</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">（崩溃边缘）我是说您的名字！</div>
+<div class="english">(On the verge of breakdown) I mean YOUR NAME!</div>
+</div>
+<div class="line-block">
+<div class="speaker">没有人</div>
+<div class="chinese">警官别生气，我是没有人。</div>
+<div class="english">Officer don't be angry, I'm Meiyou Ren.</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">什么？！</div>
+<div class="english">What?!</div>
+</div>
+<div class="line-block">
+<div class="speaker">没有人</div>
+<div class="chinese">我的名字是没有人。</div>
+<div class="english">My name is Meiyou Ren.</div>
+</div>
+<div class="line-block">
+<div class="speaker">所有人</div>
+<div class="chinese">还有我，所有人。</div>
+<div class="english">And me, Suoyou Ren.</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">所以……谁是养子？</div>
+<div class="english">So... who is the adopted son?</div>
+</div>
+<div class="line-block">
+<div class="speaker">谁、没有人、所有人</div>
+<div class="chinese">（齐声）都是我们！</div>
+<div class="english">(In unison) All of us!</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">（抱头）这对话根本进行不下去……</div>
+<div class="english">(Holding head) This conversation is impossible...</div>
+</div>
+<div class="line-block">
+<div class="speaker">你是谁</div>
+<div class="chinese">警官，还有我，你是谁。</div>
+<div class="english">Officer, and me, Ni Shi Shei.</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">……我现在真的不知道我是谁了。</div>
+<div class="english">...I really don't know who I am anymore.</div>
+</div>
+</div>
+<div class="scene">
+<div class="scene-title">第五幕：日本支系登场 <span class="en">Act 5: The Japanese Branch Arrives</span></div>
+<div class="line-block">
+<div class="speaker">某氏</div>
+<div class="chinese">打扰了，我是氏家的二女儿，某氏。</div>
+<div class="english">Excuse me, I'm the Shi family's second daughter, Bou Shi.</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">某……氏？这名字怎么读？</div>
+<div class="english">Bou... Shi? How is this name read?</div>
+</div>
+<div class="line-block">
+<div class="speaker">某氏</div>
+<div class="chinese">ぼうし，某氏。我出嫁前叫氏某人，现在叫山田某氏。</div>
+<div class="english">Bou Shi, Bou Shi. Before marriage I was called Shi Mou Ren, now I'm Yamada Bou Shi.</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">山田……某氏？您丈夫是日本人？</div>
+<div class="english">Yamada... Bou Shi? Your husband is Japanese?</div>
+</div>
+<div class="line-block">
+<div class="speaker">山田太郎</div>
+<div class="chinese">はい、山田太郎です。</div>
+<div class="english">Yes, I'm Yamada Taro.</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">（稍微松了口气）总算有个正常的……</div>
+<div class="english">(Slightly relieved) Finally something normal...</div>
+</div>
+<div class="line-block">
+<div class="speaker">某秘書</div>
+<div class="chinese">妈妈，我回来了！我是某秘書！</div>
+<div class="english">Mom, I'm back! I'm Bou Hisho!</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">某……秘書？'某秘书'？</div>
+<div class="english">Bou... Hisho? 'Bou Hisho'?</div>
+</div>
+<div class="line-block">
+<div class="speaker">某氏</div>
+<div class="chinese">对，我儿子叫某秘書，女儿叫某先生。</div>
+<div class="english">Yes, my son is Bou Hisho, my daughter is Bou Sensei.</div>
+</div>
+<div class="line-block">
+<div class="speaker">某先生</div>
+<div class="chinese">警官好，某先生向您问好。</div>
+<div class="english">Hello officer, Bou Sensei greets you.</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">（颤抖）'某先生'……是个女的？</div>
+<div class="english">(Trembling) 'Bou Sensei'... is a woman?</div>
+</div>
+<div class="line-block">
+<div class="speaker">某先生</div>
+<div class="chinese">名字而已，不必大惊小怪。</div>
+<div class="english">It's just a name, no need to make a fuss.</div>
+</div>
+</div>
+<div class="scene">
+<div class="scene-title">第六幕：更多的日本支系 <span class="en">Act 6: More of the Japanese Branch</span></div>
+<div class="line-block">
+<div class="speaker">某弁護士</div>
+<div class="chinese">还有我，某弁護士。</div>
+<div class="english">And me, Bou Bengoshi.</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">某……弁護士？律师？</div>
+<div class="english">Bou... Bengoshi? A lawyer?</div>
+</div>
+<div class="line-block">
+<div class="speaker">某弁護士</div>
+<div class="chinese">不，我的名字就是某弁護士。不过我确实学法律。</div>
+<div class="english">No, my name is Bou Bengoshi. Though I did study law.</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">（无力地）那您的狗……</div>
+<div class="english">(Weakly) Then your dog...</div>
+</div>
+<div class="line-block">
+<div class="speaker">某弁護士</div>
+<div class="chinese">叫某猫。</div>
+<div class="english">Is called Bou Neko.</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">……某弁護士的狗叫某猫。</div>
+<div class="english">...Bou Bengoshi's dog is called Bou Neko.</div>
+</div>
+<div class="line-block">
+<div class="speaker">某課長</div>
+<div class="chinese">警官，我是某課長，某氏的二儿子。</div>
+<div class="english">Officer, I'm Bou Kacho, Bou Shi's second son.</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">（抬头）某……課長？</div>
+<div class="english">(Looking up) Bou... Kacho?</div>
+</div>
+<div class="line-block">
+<div class="speaker">某課長</div>
+<div class="chinese">对，某課長。我有三个女儿：君、あなた、僕，和一个儿子：私。</div>
+<div class="english">Yes, Bou Kacho. I have three daughters: Kimi, Anata, Boku, and one son: Watashi.</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">（呆滞）君、あなた、僕……都是女孩？</div>
+<div class="english">(Blank) Kimi, Anata, Boku... all girls?</div>
+</div>
+<div class="line-block">
+<div class="speaker">某課長</div>
+<div class="chinese">对。</div>
+<div class="english">Yes.</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">私是男孩？</div>
+<div class="english">Watashi is a boy?</div>
+</div>
+<div class="line-block">
+<div class="speaker">某課長</div>
+<div class="chinese">对。</div>
+<div class="english">Yes.</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">（喃喃自语）日语人称代词全家桶……</div>
+<div class="english">(Muttering) A full set of Japanese pronouns...</div>
+</div>
+</div>
+<div class="scene">
+<div class="scene-title">第七幕：日本支系的养子与某弁護士的家庭 <span class="en">Act 7: Japanese Adopted Children and Bou Bengoshi's Family</span></div>
+<div class="line-block">
+<div class="speaker">誰も</div>
+<div class="chinese">警官，我是誰も。</div>
+<div class="english">Officer, I'm Daremo.</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">……'誰も'？'谁也没'的意思？</div>
+<div class="english">...'Daremo'? Meaning 'nobody'?</div>
+</div>
+<div class="line-block">
+<div class="speaker">誰でも</div>
+<div class="chinese">我是誰でも。</div>
+<div class="english">I'm Daredemo.</div>
+</div>
+<div class="line-block">
+<div class="speaker">皆様</div>
+<div class="chinese">我是皆様。</div>
+<div class="english">I'm Minasama.</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">（苦笑）所以誰も、誰でも、皆様都是养子？</div>
+<div class="english">(Wry smile) So Daremo, Daredemo, Minasama are all adopted children?</div>
+</div>
+<div class="line-block">
+<div class="speaker">誰も、誰でも、皆様</div>
+<div class="chinese">（齐声）はい！</div>
+<div class="english">(In unison) Yes!</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">（转向某弁護士）那您的丈夫……</div>
+<div class="english">(Turning to Bou Bengoshi) Then your husband...</div>
+</div>
+<div class="line-block">
+<div class="speaker">我々</div>
+<div class="chinese">是我，我々。不过我姓彼女。</div>
+<div class="english">It's me, Wareware. But my surname is Kanojo.</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">……姓彼女？名字叫我々？</div>
+<div class="english">...Surname Kanojo? Name Wareware?</div>
+</div>
+<div class="line-block">
+<div class="speaker">我々</div>
+<div class="chinese">对。我们还有三胞胎：君たち、私たち，和我。</div>
+<div class="english">Yes. We also have triplets: Kimitachi, Watashitachi, and me.</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">（彻底崩溃）等等，'我々'是三胞胎之一？那您自己……</div>
+<div class="english">(Completely breaking down) Wait, 'Wareware' is one of the triplets? Then you yourself...</div>
+</div>
+<div class="line-block">
+<div class="speaker">我々</div>
+<div class="chinese">对，我々就是我々。</div>
+<div class="english">Yes, Wareware is Wareware.</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">（瘫坐在椅子上）我需要休假……</div>
+<div class="english">(Collapsing into chair) I need a vacation...</div>
+</div>
+</div>
+<div class="scene">
+<div class="scene-title">第八幕：最后一击 <span class="en">Act 8: The Final Blow</span></div>
+<div class="line-block">
+<div class="speaker">本日</div>
+<div class="chinese">警官叔叔好，我是本日。</div>
+<div class="english">Hello officer uncle, I'm Honjitsu.</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">（勉强抬头）本日……今天？</div>
+<div class="english">(Barely looking up) Honjitsu... today?</div>
+</div>
+<div class="line-block">
+<div class="speaker">今日</div>
+<div class="chinese">我是今日，本日的双胞胎弟弟。</div>
+<div class="english">I'm Kyo, Honjitsu's twin younger brother.</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">本日和今日是双胞胎……</div>
+<div class="english">Honjitsu and Kyo are twins...</div>
+</div>
+<div class="line-block">
+<div class="speaker">明日</div>
+<div class="chinese">还有我，明日！我是某先生最小的孩子！</div>
+<div class="english">And me, Ashita! I'm Bou Sensei's youngest child!</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">（缓缓站起，整理文件）本人、本姐姐、本宮、本狗、张三、朕、我、谁、没有人、所有人、你是谁、某氏、山田太郎、某秘書、某先生、某弁護士、某猫、某課長、君、あなた、僕、私、誰も、誰でも、皆様、我々、彼女、君たち、私たち、本日、今日、明日……</div>
+<div class="english">(Slowly standing, organizing papers) Benren, Ben Jiejie, Ben Gong, Ben Gou, Zhang San, Zhen, Wo, Shei, Meiyou Ren, Suoyou Ren, Ni Shi Shei, Bou Shi, Yamada Taro, Bou Hisho, Bou Sensei, Bou Bengoshi, Bou Neko, Bou Kacho, Kimi, Anata, Boku, Watashi, Daremo, Daredemo, Minasama, Wareware, Kanojo, Kimitachi, Watashitachi, Honjitsu, Kyo, Ashita...</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">（深吸一口气，露出微笑）我宣布——这家人，全！部！通！过！</div>
+<div class="english">(Deep breath, smiling) I declare — this family, ALL! PASSED!</div>
+</div>
+<div class="line-block">
+<div class="speaker">所有人</div>
+<div class="chinese">（欢呼）耶！！！</div>
+<div class="english">(Cheering) Yaaaay!!!</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">（转身对助手小声说）……帮我订一张去火星的票。</div>
+<div class="english">(Turning to assistant, whispering) ...Get me a ticket to Mars.</div>
+</div>
+<div class="line-block">
+<div class="speaker">助手</div>
+<div class="chinese">警官，您说什么？</div>
+<div class="english">Officer, what did you say?</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">没什么……本官只是想去一个没有人叫'本人'的地方。</div>
+<div class="english">Nothing... this officer just wants to go somewhere where no one is called 'Benren'.</div>
+</div>
+<div class="line-block">
+<div class="speaker">本人</div>
+<div class="chinese">（从远处喊）警官！本人送您！</div>
+<div class="english">(Shouting from afar) Officer! Benren will see you off!</div>
+</div>
+<div class="line-block">
+<div class="speaker">警官</div>
+<div class="chinese">（狂奔出门）不要过来啊啊啊啊啊——</div>
+<div class="english">(Running out the door) DON'T COME OVER AAAAAAH——</div>
+</div>
+<div class="line-block stage">【幕落】</div>
+</div>
+
+<footer>
+  全剧终 · End
+</footer>
+</body>
+</html>
