@@ -13,7 +13,7 @@ cat > "$TMP" <<'HTML_HEAD'
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Stories Index</title>
+  <title>shitposts</title>
   <style>
     body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; padding: 2rem; max-width: 800px; margin: auto; }
     ul { list-style: none; padding-left: 0; }
