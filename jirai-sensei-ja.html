@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI地雷系先生 — 兵器化された教育学</title>
+    <style>
+        :root {
+            --bg-dark: #0a0612;
+            --panel-bg: rgba(22, 14, 38, 0.85);
+            --pink-accent: #ff7aa2;
+            --pink-bright: #ff2a6d;
+            --text-main: #f0e6f5;
+            --text-sub: #b2a4bf;
+            --border-pink: #54223c;
+            --danger-red: #ff3344;
+            --font-stack: "Hiragino Kaku Gothic ProN", "Meiryo", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: var(--font-stack);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(255, 42, 109, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(138, 43, 226, 0.08) 0%, transparent 40%);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        header {
+            text-align: center;
+            padding: 2rem 0;
+            border-bottom: 1px dashed var(--border-pink);
+        }
+
+        .badge-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .badge-18 {
+            display: inline-block;
+            background: var(--danger-red);
+            color: #fff;
+            font-weight: bold;
+            font-size: 0.8rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            letter-spacing: 1px;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            color: var(--pink-accent);
+            text-shadow: 0 0 15px rgba(255, 122, 162, 0.5);
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: var(--text-sub);
+            font-style: italic;
+        }
+
+        .quote-banner {
+            margin: 2rem 0;
+            padding: 1.2rem;
+            background: rgba(255, 42, 109, 0.08);
+            border-left: 4px solid var(--pink-bright);
+            font-size: 1.05rem;
+            color: #ffccd8;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin: 2.5rem 0;
+        }
+
+        @media (min-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .card {
+            background: var(--panel-bg);
+            border: 1px solid var(--border-pink);
+            border-radius: 12px;
+            padding: 1.8rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            border-color: var(--pink-accent);
+        }
+
+        .card h2 {
+            color: var(--pink-accent);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .subject-tag {
+            display: inline-block;
+            background: rgba(255, 122, 162, 0.15);
+            color: var(--pink-accent);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 0.2rem;
+            border: 1px solid rgba(255, 122, 162, 0.3);
+        }
+
+        .toggle-group {
+            margin-top: 1rem;
+        }
+
+        .toggle-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .toggle-info {
+            max-width: 70%;
+        }
+
+        .toggle-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+
+        .toggle-desc {
+            font-size: 0.78rem;
+            color: var(--text-sub);
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 46px;
+            height: 24px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: #33243b;
+            transition: .3s;
+            border-radius: 24px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .3s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--pink-bright);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(22px);
+        }
+
+        .meter-box {
+            background: #12091c;
+            border: 1px solid var(--border-pink);
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+
+        .meter-score {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--pink-bright);
+            text-shadow: 0 0 10px rgba(255, 42, 109, 0.6);
+        }
+
+        .meter-label {
+            font-size: 0.8rem;
+            color: var(--text-sub);
+            letter-spacing: 1px;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 3rem 1rem;
+            background: radial-gradient(circle, rgba(255,42,109,0.15) 0%, rgba(10,6,18,1) 70%);
+            border-radius: 16px;
+            margin: 2rem 0;
+            border: 1px solid var(--border-pink);
+        }
+
+        .btn-apk {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--pink-bright), #b8004f);
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 0 25px rgba(255, 42, 109, 0.5);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-apk:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 35px rgba(255, 42, 109, 0.8);
+        }
+
+        .license-notice {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: var(--text-sub);
+        }
+
+        footer {
+            border-top: 1px solid var(--border-pink);
+            padding: 2rem 0;
+            font-size: 0.8rem;
+            color: var(--text-sub);
+            line-height: 1.5;
+        }
+
+        .legal-box {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 1rem;
+            border-radius: 6px;
+            margin-top: 1rem;
+            border: 1px solid #2b1728;
+        }
+
+        .legal-warning {
+            color: var(--danger-red);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="badge-container">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 730 709" style="fill: var(--pink-bright); filter: drop-shadow(0 0 8px rgba(255, 42, 109, 0.6));">
+                <path d="M353 13c-17 5-27 20-27 37 0 23 15 39 37 41q9 0 15-2 22-8 27-31c3-17-6-35-22-43q-6-3-15-4zM298 87a67296 67296 0 0 1-151 160 609 609 0 0 0 53 53l4-13q5-20 13-27c16-16 42-17 60-2l3 2 42-161c-2-11-14-17-24-12M420 87q-10 3-10 14l20 82 22 78 3-3c18-15 43-15 60 2q9 8 14 29l3 12 27-27 28-27-5-5-53-56-96-100q-6-2-13 1"/>
+                <path d="M383 110c-9 3-25 3-34 1q-5-2-7-2l-9 34-65 247c-13 52-19 63-38 81a91 91 0 0 1-58 24l-9 1 101 101 102 102 101-101 101-102-11-1q-32-2-56-24a93 93 0 0 1-27-47l-85-316zm33 274q15 4 26 14 15 15 14 34-1 13-7 23c-1 3-1 3 3 8q11 14 11 34a59 59 0 0 1-87 49 55 55 0 0 1-20-83l4-6-2-3c-5-8-8-24-5-34 4-17 19-31 37-35 7-2 19-2 26-1m-85 3h2v162h-38V423h-18v-18l1-18zm116 198v13H295v-27h152z"/>
+                <path d="M396 417c-7 3-10 14-6 21 5 12 21 12 28 2q4-9 0-18-9-11-22-5M395 478c-19 10-12 38 9 38q9 0 15-6t5-14c0-15-16-25-29-18M91 233c-8 2-13 12-10 20l31 33 30 30-2 3-3 2-38-38-41-40c-6-5-17-2-21 5q-3 8-1 14l40 42 39 40-3 2-2 3-33-34-36-35c-3-3-12-3-16 0-3 2-7 9-7 13 0 5 4 10 37 43l33 34-2 3-3 3-24-25-26-25c-12-4-24 6-21 18 1 4 8 11 54 58l58 57c6 5 19 11 28 14 8 2 23 2 33 0q24-7 40-26c7-11 10-18 18-48l27-109c0-11-11-22-22-22q-14 1-20 12l-9 33-8 29-54-54q-52-53-56-55zM631 233l-57 56-54 54-6-28-9-33q-6-13-21-14c-11 0-22 11-22 22l7 30 17 65 11 44q15 34 51 44c10 2 29 1 39-2q13-5 23-13l108-110 2-8c0-11-11-18-21-14l-27 26-23 24-3-3-2-3 34-34 36-43c0-4-4-11-7-13q-9-4-16 0l-36 35-33 33-3-2-2-3 39-39 40-42c2-3 1-11-1-14-4-7-15-10-21-5l-79 78-3-2-2-3 30-30 31-33q2-6-1-13c-3-6-12-10-19-7"/>
+            </svg>
+            <span class="badge-18">18歳未満利用禁止 (18+)</span>
+        </div>
+        <h1>AI地雷系先生</h1>
+        <p class="tagline">あなたに勉強を強制する、兵器化された学習アプリ — 逃げることは許されない。</p>
+    </header>
+
+    <div class="quote-banner">
+        <em>「女は許すけど絶対に忘れない。男は忘れるけど絶対に許さない。私は……あなたがフランス語の動詞活用を終えるまで、絶対に許さないし、絶対に忘れない。」</em>
+    </div>
+
+    <div class="grid">
+        <!-- Card 1: The Concept -->
+        <div class="card">
+            <h2><span>💔</span> 執着の教育学</h2>
+            <p>従来の学習アプリはストリーク修復や可愛いマスコットを与えてくれます。私たちが与えるのは、兵器化された認知フィードバックループです。</p>
+            <p style="margin-top: 0.8rem;">変動強化スケジュール、圧倒的な対人責任感、そして適応型感情ペーシングを組み上げることで、<strong>AI地雷系先生</strong>はあなたの脳から先延ばし癖を排除し、超集中状態のフロー状態へと強制移行させます。</p>
+            
+            <div style="margin-top: 1.5rem;">
+                <strong style="color: var(--pink-accent); font-size: 0.9rem;">対応カリキュラム分野:</strong>
+                <div style="margin-top: 0.5rem;">
+                    <span class="subject-tag">ITセキュリティ / SOC運用</span>
+                    <span class="subject-tag">Rust & C++ システム開発</span>
+                    <span class="subject-tag">高強度運動 & 運動力学</span>
+                    <span class="subject-tag">実践フランス語 (C1レベル)</span>
+                    <span class="subject-tag">ガスライティング対抗認知</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2: Interactive Pattern Control -->
+        <div class="card">
+            <h2><span>⚡</span> 闇のリテンション・エンジン</h2>
+            <p style="font-size: 0.85rem; color: var(--text-sub);">メカニズムを切り替えて、あなたのプロファイルに対する予測継続率への影響を確認してください：</p>
+            
+            <div class="toggle-group">
+                <div class="toggle-item">
+                    <div class="toggle-info">
+                        <div class="toggle-title">承認欲求凍結プロトコル</div>
+                        <div class="toggle-desc">連続達成後、ランダムに賞賛を停止して焦燥感を誘発。</div>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" class="pattern-toggle" data-impact="24" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <div class="toggle-item">
+                    <div class="toggle-info">
+                        <div class="toggle-title">家庭崩壊リスク・プッシュ通知</div>
+                        <div class="toggle-desc">午前2時14分に文脈を無視した意味深な通知を送信。</div>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" class="pattern-toggle" data-impact="38" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <div class="toggle-item">
+                    <div class="toggle-info">
+                        <div class="toggle-title">逆ガスライティング小テスト</div>
+                        <div class="toggle-desc">昨日のテストを未受験だと思い込ませて危機感を煽る。</div>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" class="pattern-toggle" data-impact="19" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="meter-box">
+                <div class="meter-score" id="efficacy-score">94.8%</div>
+                <div class="meter-label">予測30日維持効率 (Predicted Retention Efficacy)</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call To Action -->
+    <div class="cta-section">
+        <h2>認知の主導権をあけわたす準備はできましたか？</h2>
+        <p style="color: var(--text-sub); margin-bottom: 1.5rem;">直接APKダウンロード。App Storeの手数料なし。独自のOpenRouter/OpenAI APIキーを登録して使用します。</p>
+
+        <button class="btn-apk" onclick="downloadApk()">📥 APKをダウンロード (v1.0.4-AGPLv3)</button>
+        <div class="license-notice">
+            <strong>AGPLv3</strong> ライセンスで提供されるフリーソフトウェア。100% クライアントサイド保存。月額基本料 $0。
+        </div>
+    </div>
+
+    <!-- Mechanics Link & Guardrails -->
+    <div class="card" style="margin-bottom: 2rem;">
+        <h2><span>📜</span> メカニクス & 倫理ホワイトペーパー</h2>
+        <p>初回APK設定画面を開く前に、すべてのユーザーへ心理メカニズムの詳細仕様書へのリンクが提示されます：</p>
+        <p style="margin-top: 0.5rem;"><a href="#paper" style="color: var(--pink-bright); text-decoration: underline;" onclick="alert('心理メカニズム仕様書を開いています: セクション 4.2 - 擬似恋愛型アーキタイプにおける間歇的可変報酬'); return false;">心理的コントロールおよび行動操作の完全仕様書 (PDF) を読む →</a></p>
+    </div>
+
+    <!-- Footer / Legal -->
+    <footer>
+        <p><strong>GDPR & コンプライアンスに関する通知:</strong></p>
+        <p>ユーザーはアプリ設定メニューから、いつでも自身の完全な心理プロファイルをJSON形式でエクスポートする無条件の権利を留保します。</p>
+        
+        <div class="legal-box">
+            <span class="legal-warning">心理プロファイルのエクスポートに関する警告：</span><br>
+            プロファイルをローカル環境にエクスポートすることは安全ですが、これを第三者と共有することは<strong>強く非推奨</strong>です。配偶者、雇用主、ビジネスパートナー、または弁護士に送信しないでください。<span style="text-decoration: underline;">特に、あなたの主治医である精神科医やカウンセラーには絶対に見せないでください。</span> AI地雷系先生 は、不適切なプロファイル開示によって生じた家庭内紛争、精神科への医療保護入院、または社会的失脚について一切の法的・道義的責任を負いません。
+        </div>
+
+        <p style="margin-top: 1rem; text-align: center; opacity: 0.6;">
+            AGPLv3 オープンソースリリース • APK限定配布 • 18歳未満利用禁止 • アプリ内課金禁止
+        </p>
+    </footer>
+</div>
+
+<script>
+    // Live Efficacy Recalculator
+    const toggles = document.querySelectorAll('.pattern-toggle');
+    const scoreDisplay = document.getElementById('efficacy-score');
+
+    function updateScore() {
+        let baseEfficacy = 13.8;
+        toggles.forEach(toggle => {
+            if (toggle.checked) {
+                baseEfficacy += parseFloat(toggle.getAttribute('data-impact'));
+            }
+        });
+        scoreDisplay.innerText = baseEfficacy.toFixed(1) + '%';
+    }
+
+    toggles.forEach(toggle => {
+        toggle.addEventListener('change', updateScore);
+    });
+
+    function downloadApk() {
+        alert("AI_Jirai_Sensei_v1.0.4.apk をダウンロード中...\n\n注意: LLM APIキー（OpenAI/Anthropic/OpenRouter）をご自身でご用意ください。中間手数料や利用料は0円です。18歳未満の利用は固く禁止されています。");
+    }
+</script>
+</body>
+</html>
